@@ -1,5 +1,5 @@
 # Binary-optimizer
-We will be using BOLT as a binary optimizer tool.
+We will be using BOLT as a binary optimizer tool. You can read more at [Project BOLT](https://github.com/llvm/llvm-project/tree/main/bolt)
 
 ## Build an application
 BOLT is currently incompatible with the ```-freorder-blocks-and-partition``` compiler option. Since GCC8 enables this option by default, you have to explicitly disable it by adding ```-fno-reorder-blocks-and-partition``` flag if you are compiling with GCC8 or above.
