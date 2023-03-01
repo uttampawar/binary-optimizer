@@ -9,15 +9,16 @@ Note: Binaries should be linked with reloacations. Use ```-Wl,--emit-relocs,-zno
 ## Step 1: Collect Profile
 The version of perf command used for the following steps has to support -F brstack option. We recommend using perf version 4.5 or later.
 
-### For Applications
 It's been recommended to collect approximately 1B instructions as reported by BOLT -dyno-stats option.
 
-```
-$ perf record -e cycles:u -j any,u -a -o perf.data -- sleep 180
-```
-or 
+### For Applications
 ```
 $ perf record -e cycles:u -j any,u --- <executable> <args>
+```
+
+### For a Service (background application)
+```
+$ perf record -e cycles:u -j any,u -a -o perf.data -- sleep 180
 ```
 
 ## Step 2: Convert profile to BOLT format. Assuming the perf data is collected in a file "perf.data".
